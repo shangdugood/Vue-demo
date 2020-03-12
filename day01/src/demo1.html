@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>title</title>
+</head>
+<body>
+    <style>
+        .movie{
+            color:black;
+            cursor: pointer;
+        }
+        .movie2{
+            color:red;
+        }
+    </style>
+    <div id="app">
+        <ul>
+            <li v-for="(m,index) in movies" class = "movie" :class = "[activeindex == index ? 'movie2':'']" @click="changeColor(index)">{{m}},{{index}}</li>
+        </ul>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el:'#app',
+            data:{
+                message:'尚都',
+                movies:['速度与激情','大闹天宫','遗忘古城','你好陌生人'],
+                activeindex:0
+            },
+            methods:{
+                changeColor : function (index) {
+                    this.activeindex = index
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
